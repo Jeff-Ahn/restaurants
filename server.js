@@ -19,25 +19,29 @@ const connection = mysql.createConnection({
 });
 connection.connect();
 
+// get restaurants table
 app.get("/api/restaurants", (req, res) => {
-  connection.query("SELECT * FROM restaurants", (err, rows, fields) => {
-    console.log(rows);
-    res.send(rows);
+  connection.query("SELECT * FROM restaurants", (err, datas) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(datas);
+  });
+});
+
+// get menus table
+app.get("/api/menus", (req, res) => {
+  connection.query("SELECT * FROM menus", (err, menus, fields) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(menus);
   });
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
-// app.get("/api/customers", (req, res) => {
-//   const customers = [
-//     { id: 1, firstName: "John", lastName: "Doe" },
-//     { id: 2, firstName: "saeki", lastName: "sibal" },
-//     { id: 3, firstName: "hyeonguk", lastName: "ahn" },
-//   ];
-
-//   res.json(customers);
-// });
-
-// app.listen(port, () => {
-//   console.log(`Server started on port ${port}`);
-// });
+// get imgs table for infopage
+/* 
+구현
+ */

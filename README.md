@@ -1,3 +1,10 @@
+## project setting
+
+git clone 이후 npm install
+client dir에서 git clone dp_project_frontend 이후 npm install
+
+database.json 추가
+
 # database.json
 
 {
