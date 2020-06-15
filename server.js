@@ -31,11 +31,21 @@ app.get("/api/restaurants", (req, res) => {
 
 // get menus table
 app.get("/api/menus", (req, res) => {
-  connection.query("SELECT * FROM menus", (err, menus, fields) => {
+  connection.query("SELECT * FROM menus", (err, menus) => {
     if (err) {
       console.log(err);
     }
     res.send(menus);
+  });
+});
+
+// get images table
+app.get("/api/images", (req, res) => {
+  connection.query("SELECT * FROM images", (err, images, fields) => {
+    if (err) {
+      console.log(err);
+    }
+    res.send(images);
   });
 });
 
